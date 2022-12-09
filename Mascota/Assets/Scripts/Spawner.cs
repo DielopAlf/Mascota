@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField]
+    float timeMin, timeMax = 30;
+    [SerializeField]
+    GameObject prefabtarget;
+
+
+
+
     void Start()
     {
         
