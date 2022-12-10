@@ -5,22 +5,24 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
 
-    [SerializeField]
-    float timeMin, timeMax = 30;
-    [SerializeField]
-    GameObject prefabtarget;
-
-
-
+   
+   public GameObject prefabtarget;
+   public bool stopSpawning = false;
+   public float SpawnTime;
+   public float SpawnDelay;
 
     void Start()
     {
-        
+         InvokeRepeating("SpawnObject",spawnTime,SpawnDelay);
     }
 
-    // Update is called once per frame
-    void Update()
+     public void SpawnObject()
     {
-        
+        Instantiate(spawnee, transform.position, transform.rotation);
+        if (stopSpawning)
+        {
+         CancelInvoke("SpawnObject");
+
+        }
     }
 }
