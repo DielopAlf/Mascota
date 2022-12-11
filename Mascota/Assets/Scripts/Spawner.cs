@@ -13,12 +13,12 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-         InvokeRepeating("SpawnObject",spawnTime,SpawnDelay);
+         InvokeRepeating("SpawnObject",SpawnTime,SpawnDelay);
     }
 
      public void SpawnObject()
     {
-        Instantiate(spawnee, transform.position, transform.rotation);
+        Instantiate(prefabtarget,  gameObject.transform.position, Quaternion.identity);
         if (stopSpawning)
         {
          CancelInvoke("SpawnObject");
