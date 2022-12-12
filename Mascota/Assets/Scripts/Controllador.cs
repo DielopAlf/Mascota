@@ -11,7 +11,7 @@ public class Controllador : MonoBehaviour
    public float DivisorDeTiempo=1;
 
    public int EstadoDeHambre=10;
-    public int EstadoDeFelicidad=5;
+    public int EstadoDeAmor=5;
 
 
    public int Amor= 100;
@@ -112,36 +112,52 @@ public class Controllador : MonoBehaviour
     int TiempoAmor;
     void ActualizarCosas()
     {
-        if (EstadoActual > 0 )
+        if (EstadoActual > 0)
         {
-            if (TiempoHambre > EstadoDeHambre)
+            if (TiempoAmor > EstadoDeAmor)
+            {
+                TiempoAmor = 0;
+                Amor--;
+                SLDAmor.value = Amor;
+            }
+            TiempoAmor++;
 
+            if (TiempoHambre > EstadoDeHambre)
             {
                 TiempoHambre = 0;
                 Hambre--;
 
-                if (Hambre <=0)
+                if (Hambre <= 40)
                 {
-
-
+                    Amor--;
+                    SLDAmor.value = Amor;
+                    if (Amor <= 0)
+                    {
+                        Morir();
+                    }
+                }
+                else
+                {
+                    if (Amor < 100)
+                    {
+                        Amor++;
+                        SLDAmor.value = Amor;
+                    }
                 }
 
                 SLDHambre.value = Hambre;
-
             }
             TiempoHambre++;
         }
         if (EstadoActual > -1)
         {
-            if ((TiempoTranscurrido  %  TiempoNesesarioParaSubir ) == 0)
+            if ((TiempoTranscurrido % TiempoNesesarioParaSubir) == 0)
             {
-                 CalcularCambioDeEstado();
-
+                CalcularCambioDeEstado();
             }
-
         }
 
-       
+
         TiempoTranscurrido++;
     }
     void Morir()
