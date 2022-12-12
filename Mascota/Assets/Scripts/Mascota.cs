@@ -7,15 +7,7 @@ public class Mascota : MonoBehaviour
    
 
 
-    public enum EstadosSelector
-
-  {
-        Muerto,
-        Bebe,
-        Junior,
-        Senior,
-        Queen,
-  }
+    
 
 
 
