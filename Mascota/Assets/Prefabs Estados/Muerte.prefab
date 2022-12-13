@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3309950}
   - component: {fileID: 2355544}
   - component: {fileID: 6533242}
-  - component: {fileID: 1635860569978515291}
   m_Layer: 0
   m_Name: Muerte
   m_TagString: Untagged
@@ -98,15 +97,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8840629, y: 0.27220088, z: 1.2587621}
   m_Center: {x: 0.057650223, y: 0.0028476424, z: 0.62938106}
---- !u!114 &1635860569978515291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 168578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 297b97db439fb5e4b969ece8b87de61a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

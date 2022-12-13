@@ -41,7 +41,7 @@ public class Controllador : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(r, out h))
+            if (Physics.Raycast(r, out h)) 
             {
                 if (h.collider.CompareTag("Jugador"))
                 {
