@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class Mascota : MonoBehaviour
 {
     public bool Hambre;
     public int Amor;
 
     public GameObject [] Estados;
-    int EstadoActual; 
+    int EstadoActual;
 
 
-
+   
 
     private void Start()
     {
@@ -89,7 +91,7 @@ public class Mascota : MonoBehaviour
             Estados[4].SetActive(true);
             EstadoActual=4;
         }
-
+        Debug.Log("AMOR");
     }
- 
+    
 }

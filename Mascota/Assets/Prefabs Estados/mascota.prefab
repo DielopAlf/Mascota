@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8760572789148801407}
   - component: {fileID: 6910917342223851232}
+  - component: {fileID: 4207793975161672510}
+  - component: {fileID: 8846682194651684219}
   m_Layer: 0
   m_Name: mascota
   m_TagString: Untagged
@@ -57,6 +59,35 @@ MonoBehaviour:
   - {fileID: 7421108290875426150}
   - {fileID: 3782972003175098518}
   - {fileID: 3560171058007807908}
+--- !u!65 &4207793975161672510
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6883279430744923270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &8846682194651684219
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6883279430744923270}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &322596758539162814
 PrefabInstance:
   m_ObjectHideFlags: 0
