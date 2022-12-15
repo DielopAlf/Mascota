@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1232,7 +1232,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: -1
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2901,13 +2901,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017062379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58363819a75b1a64ba0e3a6cd80b7a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 1150001865}
   speedForce: 0
+--- !u!54 &1150001865 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8846682194651684219, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+  m_PrefabInstance: {fileID: 5447260173300761948}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1156944622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2947,7 +2952,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156944622}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 894d3726ac1cd9f43bbb816b238a91cf, type: 3}
   m_Name: 
@@ -3602,7 +3607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409520191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1, y: 0.73, z: -12.15}
+  m_LocalPosition: {x: 0.1, y: 0.73, z: -11.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5210,10 +5215,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6883279430744923270, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: m_Name
       value: mascota
@@ -5221,6 +5222,10 @@ PrefabInstance:
     - target: {fileID: 6883279430744923270, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: m_TagString
       value: Mascota
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910917342223851232, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+      propertyPath: Hambre
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6910917342223851232, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: SLDAmor
@@ -5252,7 +5257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8760572789148801407, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.224
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8760572789148801407, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5289,4 +5294,5 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7931122651785475239, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
     - {fileID: 4730208121532051295, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+    - {fileID: 6080608573594006729, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
