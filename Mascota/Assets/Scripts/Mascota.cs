@@ -11,7 +11,7 @@ public class Mascota : MonoBehaviour
     public int Amor;
 
     public GameObject [] Estados;
-    int EstadoActual;
+    int EstadoActual =0;
 
 
    
@@ -19,21 +19,26 @@ public class Mascota : MonoBehaviour
     private void Start()
     {
 
-        Amor =  1;//PlayerPrefs.GetInt("Amor", 1); 
+        Amor =  PlayerPrefs.GetInt("Amor", 1);
+        Hambre=false;
+        /*
         if (PlayerPrefs.GetInt("Hambre", 0) == 0)
         {
-
+        
             Hambre= false;
-
 
         }
         else 
         {
             Hambre= true; 
         
-        }
+        }*/
         //Debug.Log(Amor);
+
         ComprobarEstado();
+        CambiarEstado();
+
+
     }
     
    public void CambiarAmor(int DarAmor)
@@ -53,7 +58,6 @@ public class Mascota : MonoBehaviour
             if (Estados[i].activeSelf==true)
             {
                 EstadoActual= i;
-
 
             }
 
@@ -92,7 +96,10 @@ public class Mascota : MonoBehaviour
             Estados[4].SetActive(true);
             EstadoActual=4;
         }
-        Debug.Log("AMOR");
+        Debug.Log(Amor);
     }
-    
-}
+    public void Update()
+    {
+        Debug.Log(Hambre);
+    }
+} 

@@ -6,6 +6,15 @@ using UnityEngine;
 public class DateManager : MonoBehaviour
 
 {
+    public GameObject mascota;
+
+    Mascota scriptMascota;
+
+    public float tiempoParaHambre=20f; 
+
+    public float tiempoParaAmor=30f;
+
+    public string horadehambre;
 
     string hourHambreString;
 
@@ -26,13 +35,21 @@ public class DateManager : MonoBehaviour
     void Start()
 
     {
+        scriptMascota = mascota.GetComponent<Mascota>();
 
         Debug.Log("Ahora mismo = " + DateTime.Now.ToString());
 
+        if(PlayerPrefs.GetString("horadehambre")=="")
+        {
+            horadehambre=DateTime.Now.AddMinutes(tiempoParaHambre).ToString();
+            PlayerPrefs.SetString("horadehambre", horadehambre);
+        }
+        else
+        {
+            horadehambre=PlayerPrefs.GetString("horadehambre");
+        }
 
-
-
-
+        /*
         //Para probar el funcionamiento lo primero que hago
 
         //es calcular cuando va a tener hambre para simplificarlo 
@@ -58,12 +75,11 @@ public class DateManager : MonoBehaviour
         ultimaHoraQueRestoPuntosPorHambre = DateTime.Now.ToString();
 
 
-
+*/
     }
 
 
 
-    // Update is called once per frame
 
     void Update()
 
@@ -71,7 +87,7 @@ public class DateManager : MonoBehaviour
 
         //Carga desde un string (podría ser un string sacado desde player prefs...) la fecha (con hora mes y dias...)
 
-
+        /*
 
         DateTime cuandoTendraHambre = DateTime.Parse(hourHambreString);
 
@@ -92,7 +108,8 @@ public class DateManager : MonoBehaviour
             ultimaHoraQueRestoPuntosPorHambre = DateTime.Now.ToString();
 
         }
-
+        */
+        //comprobarHambre();
     }
 
 
@@ -146,9 +163,30 @@ public class DateManager : MonoBehaviour
         {
 
             Debug.Log("Estoy engordando...");
-
+            
         }
 
     }
+   
+    public void comprobarHambre()
+    {
+       if(scriptMascota.Hambre==true)
+       {
 
+
+
+       }
+
+       else 
+       {
+
+            if (DateTime.Parse(DateTime.Now.ToString())>=DateTime.Parse(horadehambre))
+            {
+                scriptMascota.Hambre=true;
+
+
+            }
+        
+       }
+    } 
 }

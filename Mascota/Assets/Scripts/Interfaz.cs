@@ -38,4 +38,13 @@ public class Interfaz : MonoBehaviour
         MenuAlimentar.SetActive(false);
     }
 
+    public void ResetearPuntos()
+    {
+
+        PlayerPrefs.DeleteAll();
+        
+
+
+        
+    }
 }
