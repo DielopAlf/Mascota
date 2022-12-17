@@ -44,6 +44,7 @@ public class Caricia: MonoBehaviour
                     Acariciar();
                     particulas.SetActive(true);
                     Amor += 10;
+
                     
                 }
             }
