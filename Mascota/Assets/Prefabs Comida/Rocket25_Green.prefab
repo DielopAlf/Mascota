@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23627492144766222}
   - component: {fileID: 8354732213918863455}
   - component: {fileID: -6293401163625602526}
+  - component: {fileID: 7968278358099250463}
   m_Layer: 0
   m_Name: Rocket25_Green
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1476762247658282}
   m_LocalRotation: {x: -0.00000008078812, y: 0.12820426, z: 0.000000010443564, w: 0.9917478}
   m_LocalPosition: {x: 0.033432104, y: -16.23, z: -3.4000015}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -0.48493, y: -0.48493, z: -0.48493}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,3 +115,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.574014, y: 15.1315365, z: 6.5740147}
   m_Center: {x: -0.00000023841858, y: 0.17604232, z: -0.00000023841858}
+--- !u!114 &7968278358099250463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476762247658282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfb1c4bc16dcba4fa7e5c5fa44c20bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabtarget: {fileID: 1476762247658282}
+  stopSpawning: 1
+  SpawnTime: 0
+  SpawnDelay: 0

@@ -17,8 +17,10 @@ public class Caricia: MonoBehaviour
 
     public Slider SLDAmor;
 
-    public int Amor = 100;
+    public int Amor;
     int EstadoActual = 0;
+
+
 
     void Start()
     {
@@ -32,14 +34,17 @@ public class Caricia: MonoBehaviour
         RaycastHit h;
         Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             if (Physics.Raycast(r, out h))
             {
-                if (h.collider.CompareTag("Mascota"))
+                if (h.collider.tag.Equals("Mascota"))
                 {
+                    Rigidbody rigidbodyMascota = h.collider.GetComponent<Rigidbody>();
                     Acariciar();
                     particulas.SetActive(true);
+                    Amor += 10;
+                    
                 }
             }
         }
