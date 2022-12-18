@@ -12,6 +12,7 @@ public class Limite : MonoBehaviour
     bool Izquierda = false;
     public Button jugar;
     public float Velocidad= 1.5f;
+    public float speedForce;
     public float desplazamientoHorizontal;
     public float rangoX = 1f;
     //public float movimientoEjeX;
@@ -29,30 +30,7 @@ public class Limite : MonoBehaviour
         
     }
 
-    /*public void clickIzq()
-    {
-
-        Izquierda = true;
-    }
-
-    public void releaseIzq()
-    {
-
-       Izquierda = false;
-
-    }
-    public void clickDch()
-    {
-
-        Derecha = true;
-    }
-
-    public void releaseDch()
-    {
-
-        Derecha = false;
-
-    }
+    
 
     private void FixedUpdate()
     {
