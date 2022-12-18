@@ -13,7 +13,7 @@ public class MovMascota : MonoBehaviour
 
 
     bool facingRight;
-
+  
 
     Rigidbody rb;
 
