@@ -1,74 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Jugar : MonoBehaviour
 {
-    bool Derecha = false;
-    bool Izquierda = false;
+    int contador;
+    Rigidbody rb;
+    Vector2 direction;
 
-    //public float velocidaddeMovimiento = 1.5f;
-    //public float movimientoEjeX;
-    //public float movimientoEjeY;
-    //public float movimientoEjeZ;
-    public Rigidbody rb;
-    public float speedForce;
+    public float movimientoEjeX;
+    public float movimientoEjeY;
+    public float movimientoEjeZ;
+    public float velocidaddeMovimiento = 1.5f;
 
-    public void clickIzq()
+    public void OnTriggerEnter(Collider other)
     {
+        Destroy(other.gameObject);
+        contador = contador +1;
 
-        Izquierda = true;
-    }
 
-    public void releaseIzq()
-    {
 
-       Izquierda = false;
-
-    }
-    public void clickDch()
-    {
-
-        Derecha = true;
-    }
-
-    public void releaseDch()
-    {
-
-        Derecha = false;
-
-    }
-
-    private void FixedUpdate()
-    {
-        if(Izquierda)
-        {
-
-            rb.AddForce(new Vector3(-speedForce, 0)*Time.deltaTime);
-        }
-        if(Derecha)
-        {
-
-            rb.AddForce(new Vector3(-speedForce, 0)*Time.deltaTime);
-
-        }
 
 
     }
 
-    /*private void FixedUpdate()
+
+
+    public void Awake()
     {
-        movimientoEjeX = Input.GetAxis("Horizontal") * Time.deltaTime*velocidaddeMovimiento;
-        //movimientoEjeZ= Input.GetAxis("Vertical")*Time.deltaTime* velocidaddeMovimiento;
+        rb=GetComponent<Rigidbody>();
+        contador = 0;
+
+
+
+
+    }
+
+
+
+    public void FixedUpdate()
+
+
+    {
+        movimientoEjeX = Input.GetAxis("Horizontal") * Time.deltaTime * velocidaddeMovimiento;
+
         transform.Translate(movimientoEjeX, movimientoEjeY, movimientoEjeZ);
-    }*/
-    
-
-
-
-
-
-
+    }
 }
-
+    
 
