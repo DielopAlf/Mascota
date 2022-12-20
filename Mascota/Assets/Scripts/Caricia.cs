@@ -8,13 +8,14 @@ using UnityEngine.SceneManagement;
 
 public class Caricia: MonoBehaviour
 {
+   public GameObject mascota;
 
+    Mascota scriptMascota;
     public Slider BarraDeVida;
     public TextMeshProUGUI tiempo;
     public GameObject malla;
     public GameObject particulas;
-    bool estaActiva;
-
+    bool clicmascota;
     public Slider SLDAmor;
 
     public int Amor;
@@ -24,7 +25,8 @@ public class Caricia: MonoBehaviour
 
     void Start()
     {
-        estaActiva=true;
+        
+         scriptMascota = mascota.GetComponent<Mascota>();
     }
 
     // Update is called once per frame
@@ -34,34 +36,54 @@ public class Caricia: MonoBehaviour
         RaycastHit h;
         Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (Physics.Raycast(r, out h))
             {
                 if (h.collider.tag.Equals("Mascota"))
                 {
                     Rigidbody rigidbodyMascota = h.collider.GetComponent<Rigidbody>();
-                    Acariciar();
+                    
                     particulas.SetActive(true);
-                    Amor += 10;
+                    clicmascota=true;
+                    
 
                     
                 }
             }
         }
-    }
-    void Acariciar()
-    {
-       
-        if (EstadoActual > 0)
+        if (Input.GetMouseButtonUp(0))
         {
-            if (Amor < 100)
+          clicmascota=false;
+          StopCoroutine(Acariciar());
+        }
+
+        if (clicmascota==true)
+        {
+           if (Input.GetAxis("Mouse X")!=0f||Input.GetAxis("Mouse Y")!=0f) 
+           {
+                    
+            StartCoroutine(Acariciar());
+
+
+           }
+        }
+
+        
+    }
+
+    IEnumerator Acariciar()
+    {   
+       
+        if (scriptMascota.EstadoActual > 0)
+        {
+            if (scriptMascota.Amor < 100)
             {
-                Amor++;
+                 yield return new WaitForSeconds(2f);
+                scriptMascota.CambiarAmor(10);
             }
             SLDAmor.value = Amor;
         }
 
-        Debug.Log("golpea");
     }
 }

@@ -11,10 +11,6 @@ public class MovMascota : MonoBehaviour
 
     float xInput;
 
-
-    bool facingRight;
-  
-
     Rigidbody rb;
 
     private void Awake()
@@ -22,15 +18,46 @@ public class MovMascota : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        rb.velocity = new Vector3(xInput * Velocidad, rb.velocity.y, 0f); 
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) 
+        {
+          HorizontalInput(-1f);
+
+
+        }
+         else if  (Input.GetKeyDown(KeyCode.RightArrow)) 
+        {
+
+          HorizontalInput(1f);
+
+        }
+       else
+       {
+        HorizontalInput(0f);
+
+
+       }
+       Debug.Log(xInput);
     }
 
+    public void FixedUpdate()
+    {
+
+        movimiento();
+
+
+    }
     public void HorizontalInput(float value)
     {
         xInput = value;
     }
+    public void movimiento()
+    {
+     
+      //rb.velocity = new Vector3(xInput, 0f, 0f)* Velocidad * Time.deltaTime; 
+      rb.MovePosition(transform.position + new Vector3(xInput, 0f, 0f)* Velocidad * Time.deltaTime); 
 
+    }
 
 }

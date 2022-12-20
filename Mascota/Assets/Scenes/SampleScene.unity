@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2414,15 +2414,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129678681}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8315dfa1307ef1744a40f015b9539bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mascota: {fileID: 1017062379}
-  tiempoParaHambre: 0.5
+  tiempoParaHambre: 0.1
+  tiempoparaperderpuntos: 0.05
   tiempoParaAmor: 0
-  horadehambre: 
+  str_horadehambre: 
+  str_pierdeamorporhambre: 
   pointsLove: 100
   frecuenciaRestadoPuntosPorAlimentacion: 5
 --- !u!114 &1129678685
@@ -2437,6 +2439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e603bc463ae2e468e3c129a0f5a7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mascota: {fileID: 1017062379}
   BarraDeVida: {fileID: 0}
   tiempo: {fileID: 0}
   malla: {fileID: 1017062379}
@@ -2461,7 +2464,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017062379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58363819a75b1a64ba0e3a6cd80b7a48, type: 3}
   m_Name: 
@@ -2507,7 +2510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34688cf551c96b24fbce15a141fdc65e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocidad: 4
+  Velocidad: 1000
 --- !u!1 &1152442107
 GameObject:
   m_ObjectHideFlags: 0
@@ -4209,6 +4212,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846682194651684219, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846682194651684219, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+      propertyPath: m_AngularDrag
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8846682194651684219, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
