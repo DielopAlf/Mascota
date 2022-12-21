@@ -8,10 +8,16 @@ public class MovMascota : MonoBehaviour
 {
 
     [SerializeField] float Velocidad = 7f;
-
+    public GameObject menuAlimentar; 
     float xInput;
 
     Rigidbody rb;
+
+    public float maxDerecha = 3f;
+
+    public float maxIzquierda = -3f;
+
+    bool botonpulsar;
 
     private void Awake()
     {
@@ -20,44 +26,45 @@ public class MovMascota : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) 
-        {
-          HorizontalInput(-1f);
-
-
+        if (botonpulsar == false)
+        {       
+           xInput = Input.GetAxis("Horizontal");  
         }
-         else if  (Input.GetKeyDown(KeyCode.RightArrow)) 
-        {
 
-          HorizontalInput(1f);
-
-        }
-       else
-       {
-        HorizontalInput(0f);
-
-
-       }
-       Debug.Log(xInput);
     }
 
     public void FixedUpdate()
     {
+        if (menuAlimentar.activeSelf == true)
+        {
 
-        movimiento();
+                movimiento();
 
-
+        }
     }
-    public void HorizontalInput(float value)
-    {
-        xInput = value;
-    }
+    
     public void movimiento()
     {
      
-      //rb.velocity = new Vector3(xInput, 0f, 0f)* Velocidad * Time.deltaTime; 
-      rb.MovePosition(transform.position + new Vector3(xInput, 0f, 0f)* Velocidad * Time.deltaTime); 
+      if (xInput<0 && transform.position.x > maxIzquierda)
+      {
+
+         rb.MovePosition(transform.position + new Vector3(xInput,0,0f)*Velocidad* Time.deltaTime);
+      }
+      else if  (xInput>0 && transform.position.x < maxDerecha)
+      {
+         rb.MovePosition(transform.position + new Vector3(xInput,0,0f)*Velocidad* Time.deltaTime);
+      }
 
     }
-
+    public void botonpulsado(float Input)
+    {
+     botonpulsar = true;
+     xInput = Input;
+    }
+     public void botonsoltado ()
+    {
+     botonpulsar =false;
+     xInput = 0;
+    }
 }

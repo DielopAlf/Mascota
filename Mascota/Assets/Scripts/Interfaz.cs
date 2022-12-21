@@ -11,7 +11,7 @@ public class Interfaz : MonoBehaviour
     void Start()
     {
      MenuInicial.SetActive(true); 
-     MenuJugar.SetActive(false);
+   //  MenuJugar.SetActive(false);
      MenuAlimentar.SetActive(false);
     }
 

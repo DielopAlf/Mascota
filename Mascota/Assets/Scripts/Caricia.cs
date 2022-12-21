@@ -11,21 +11,14 @@ public class Caricia: MonoBehaviour
    public GameObject mascota;
 
     Mascota scriptMascota;
-    public Slider BarraDeVida;
-    public TextMeshProUGUI tiempo;
-    public GameObject malla;
     public GameObject particulas;
     bool clicmascota;
-    public Slider SLDAmor;
-
-    public int Amor;
-    int EstadoActual = 0;
-
-
-
+    public float TiempodeCaricia = 2f;
+    float temporizador;
+    public int amorporCaricia = 10;
     void Start()
     {
-        
+        temporizador = TiempodeCaricia;
          scriptMascota = mascota.GetComponent<Mascota>();
     }
 
@@ -44,46 +37,43 @@ public class Caricia: MonoBehaviour
                 {
                     Rigidbody rigidbodyMascota = h.collider.GetComponent<Rigidbody>();
                     
-                    particulas.SetActive(true);
                     clicmascota=true;
-                    
-
-                    
+                   
                 }
             }
         }
-        if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))
         {
           clicmascota=false;
-          StopCoroutine(Acariciar());
         }
 
+        
+        
         if (clicmascota==true)
         {
            if (Input.GetAxis("Mouse X")!=0f||Input.GetAxis("Mouse Y")!=0f) 
            {
-                    
-            StartCoroutine(Acariciar());
-
-
+               temporizador -= Time.deltaTime;    
+       
+               if (temporizador<= 0f)
+               {
+                scriptMascota.CambiarAmor(amorporCaricia); 
+                
+                temporizador = TiempodeCaricia;
+                clicmascota=false;
+                StartCoroutine(mostrarcorazones());
+               }
            }
         }
 
         
     }
-
-    IEnumerator Acariciar()
-    {   
-       
-        if (scriptMascota.EstadoActual > 0)
-        {
-            if (scriptMascota.Amor < 100)
-            {
-                 yield return new WaitForSeconds(2f);
-                scriptMascota.CambiarAmor(10);
-            }
-            SLDAmor.value = Amor;
-        }
-
+    IEnumerator mostrarcorazones()
+    {
+        particulas.SetActive(true);
+        yield return new WaitForSeconds(1);
+        particulas.SetActive(false);
+        
     }
+ 
 }
