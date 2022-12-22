@@ -10,190 +10,38 @@ public class DateManager : MonoBehaviour
 
     Mascota scriptMascota;
 
+    [Header ("tiempo Para Hambre (en mins)") ]
     public float tiempoParaHambre=180f;
-    
     public float tiempoparaperderpuntos=20f;
+     string  str_horadehambre;
+     string  str_pierdeamorporhambre;
 
-    public float tiempoParaAmor=30f;
-
-    public string  str_horadehambre;
-
-    public string  str_pierdeamorporhambre;
-
-    /* string hourHambreString;
-     * string ultimaHoraqueresyopuntosporhambre
-     * [SerializedField]
-     * in pointslove = 100;
-     *  [SerializedField]
-     * float frecuenciarestadopuntosporalimentacion = 5f;
-     */
-
-    string ultimaHoraQueRestoPuntosPorHambre;
-
-    [SerializeField]
-
-    int pointsLove = 100;
-
-    [SerializeField]
-
-    float frecuenciaRestadoPuntosPorAlimentacion = 5f;
-
-
-
-    // Start is called before the first frame update
+     [Header ("tiempo Para Amor (en mins)") ]
+     public float tiempoParaCaricia=1440f;
+     string  str_horadeCaricia;
+     string  str_pierdeamorporCaricia;
+     public float tiempopierdeamorporCaricia=30f;
+     
 
     void Start()
 
     {
         scriptMascota = mascota.GetComponent<Mascota>();
 
-        comprobarHoras ();
-
-
-        /*
-        //Para probar el funcionamiento lo primero que hago
-
-        //es calcular cuando va a tener hambre para simplificarlo 
-
-        //le digo que será en 15 segundos....
-
-        DateTime cuandoTendraHambre = DateTime.Now.AddSeconds(15);
-
-
-
-        //Almaceno en un string la hora de cuando tendrá hambre
-
-        //esto lo hago para poder guardar como string en playerprefs
-
-        //las diferentes fechas.
-
-        hourHambrestring = playerprefs.getstring("cuandotendrahambre","nuncahejugado");
-
-        if (hourhambrestring != "nuncahejugado")
-        {
-            cuandotendrahambre = datetime.parse(hourhambrestring);
-        
-        }
-        else
-        {
-
-                    cuandotendrahambre = datetime.now.(assminutes(1);
-
-        }
-
-        debug.log("tendra hambre a las" + cuando tendrahambre);
-
-        ultimahoraquerestopuntosporhambre = da
-
-
-
-        hourHambreString = cuandoTendraHambre.ToString();
-
-        Debug.Log("Tendra hambre a las " + hourHambreString);
-
-
-
-        ultimaHoraQueRestoPuntosPorHambre = DateTime.Now.ToString();
-
-
-*/
+       // comprobarHambreStart();
+        comprobarAmorStart();
     }
-
-
 
 
     void Update()
 
     {
-         comprobarHambre();
-        //Carga desde un string (podría ser un string sacado desde player prefs...) la fecha (con hora mes y dias...)
+       //comprobarHambreUpdate();
+       comprobarAmorUpdate();
 
-        /*
-
-        DateTime cuandoTendraHambre = DateTime.Parse(hourHambreString);
-
-
-
-        //Comparo la fecha de cuando tendrá hambre con la actual.
-
-        //En caso de haberse pasado la hora de comer, se mostrará el mensaje.
-
-        if (IsHungry() && PuedePerderPuntos())
-
-        {
-
-            Debug.Log("Tiene Hambre");
-
-            pointsLove = pointsLove - 1;
-
-            ultimaHoraQueRestoPuntosPorHambre = DateTime.Now.ToString();
-
-        }
-        */
-        //comprobarHambre();
     }
 
-
-
-    /*public bool PuedePerderPuntos()
-
-    {
-
-        //Ultima vez que le resté puntos
-
-        DateTime ultimaVezRestado = DateTime.Parse(ultimaHoraQueRestoPuntosPorHambre);
-
-        return ultimaVezRestado.AddSeconds(frecuenciaRestadoPuntosPorAlimentacion) < DateTime.Now;
-
-    }*/
-
-
-
-    /*public bool IsHungry()
-
-    {
-
-        //Ultima vez que ha comido
-
-        DateTime cuandoTendraHambre = DateTime.Parse(hourHambreString);
-
-        return cuandoTendraHambre < DateTime.Now;
-
-    }*/
-
-
-
-    /*public void GiveFood()
-
-    {
-
-        if (IsHungry())
-
-        {
-
-            DateTime cuandoTendraHambre = DateTime.Now.AddSeconds(15);
-
-            hourHambreString = cuandoTendraHambre.ToString();
-            playerPrefs-SetDtring("cuandoTrandraHambre",hour
-            
-            pointsLove += 10;
-            
-    
-
-            
-        }
-
-        else
-
-        {
-
-            Debug.Log("Estoy engordando...");
-            
-        }
-
-    }*/
-   
-    public void comprobarHoras()
+    public void comprobarHambreStart()
     {
        if(PlayerPrefs.GetString("horaparacomer")=="")
        {
@@ -201,46 +49,120 @@ public class DateManager : MonoBehaviour
         str_horadehambre=DateTime.Now.AddMinutes(tiempoParaHambre).ToString();
 
         PlayerPrefs.SetString("horaparacomer",str_horadehambre);
+        str_pierdeamorporhambre = DateTime.Parse(str_horadehambre).AddMinutes(tiempoparaperderpuntos).ToString(); 
+        PlayerPrefs.SetString("horapierdepuntos",str_pierdeamorporhambre);
+        scriptMascota.Hambre=false;
        }
 
        else 
        {
 
-        str_horadehambre = PlayerPrefs.GetString ("horaparacomer");
-
-       }
-    }  
-    public void comprobarHambre()
-    {
-        if(scriptMascota.Hambre==true)
-        {
-            if (DateTime.Now> DateTime.Parse(str_pierdeamorporhambre))
+            str_horadehambre = PlayerPrefs.GetString ("horaparacomer");
+            if (DateTime.Now>DateTime.Parse(str_horadehambre)) 
             {
-
-             str_pierdeamorporhambre=DateTime.Now.AddMinutes(tiempoparaperderpuntos).ToString();
-             PlayerPrefs.SetString("horapierdepuntos", str_pierdeamorporhambre);
-             scriptMascota.CambiarAmor(-1);
+                float tiempotranscurrido = (float)(DateTime.Now-DateTime.Parse(str_horadehambre)).TotalMinutes;
+                
+                int repeticiones = (int) Mathf.Ceil(tiempotranscurrido/tiempoparaperderpuntos); 
+                for(int i = 0; i < repeticiones;i++)
+                {
+                    scriptMascota.CambiarAmor(-1); 
+                }
+                str_pierdeamorporhambre = DateTime.Now.AddMinutes(tiempoparaperderpuntos).ToString(); 
+                PlayerPrefs.SetString("horapierdepuntos",str_pierdeamorporhambre);
+                scriptMascota.Hambre=true;
+            }
+            else 
+            {
+                str_pierdeamorporhambre = DateTime.Parse(str_horadehambre).AddMinutes(tiempoparaperderpuntos).ToString(); 
+                PlayerPrefs.SetString("horapierdepuntos",str_pierdeamorporhambre);
+                scriptMascota.Hambre=true;
 
             }
-            
+       }
+    }
+    public void comprobarHambreUpdate()
+    {
+        if(scriptMascota.Hambre == true)
+        { 
+            if(DateTime.Now>DateTime.Parse(str_pierdeamorporhambre)) 
+            {
+                str_pierdeamorporhambre = DateTime.Now.AddMinutes(tiempoparaperderpuntos).ToString(); 
+                PlayerPrefs.SetString("horapierdepuntos",str_pierdeamorporhambre);
+                scriptMascota.CambiarAmor(-1);
+            }
+            Debug.Log("TieneHambre");
 
         }
+        else 
+        {
+             if(DateTime.Now>DateTime.Parse(str_horadehambre)) 
+             
+             {
+                scriptMascota.Hambre=true;
+                
+             }
+             Debug.Log("NotIENEHAMBRE");
 
-      else
-      {
-          if (DateTime.Now> DateTime.Parse(str_horadehambre))
-          {
-
-          scriptMascota.Hambre = true;
-
-
-          }
-
-
-
-
-
-      }
-     
+        }
     }
+
+
+
+    public void comprobarAmorStart()
+    {
+       if(PlayerPrefs.GetString("horaparaCaricia")=="")
+       {
+       
+        str_horadeCaricia=DateTime.Now.AddMinutes(tiempoParaCaricia).ToString();
+
+        PlayerPrefs.SetString("horaparaCaricia",str_horadeCaricia);
+        str_pierdeamorporCaricia= DateTime.Parse(str_horadeCaricia).AddMinutes(tiempopierdeamorporCaricia).ToString(); 
+        PlayerPrefs.SetString("horapierdeamor",str_pierdeamorporCaricia);
+       }
+
+       else 
+       {
+
+            str_horadeCaricia = PlayerPrefs.GetString ("horaparaCaricia");
+            if (DateTime.Now>DateTime.Parse(str_horadeCaricia)) 
+            {
+                float tiempotranscurrido = (float)(DateTime.Now-DateTime.Parse(str_horadeCaricia)).TotalMinutes;
+                
+                int repeticiones = (int) Mathf.Ceil(tiempotranscurrido/tiempopierdeamorporCaricia); 
+                for(int i = 0; i < repeticiones;i++)
+                {
+                    scriptMascota.CambiarAmor(-1); 
+                }
+                str_pierdeamorporCaricia = DateTime.Now.AddMinutes(tiempopierdeamorporCaricia).ToString(); 
+                PlayerPrefs.SetString("horapierdeamor",str_pierdeamorporCaricia);
+               
+            }
+            else 
+            {
+                str_pierdeamorporCaricia = DateTime.Parse(str_horadeCaricia).AddMinutes(tiempopierdeamorporCaricia).ToString(); 
+                PlayerPrefs.SetString("horapierdeamor",str_pierdeamorporCaricia);
+               
+
+            }
+       }
+    }
+    public void comprobarAmorUpdate()
+    {
+        if(DateTime.Now>DateTime.Parse(str_horadeCaricia))
+        { 
+            if(DateTime.Now>DateTime.Parse(str_pierdeamorporCaricia)) 
+            {
+                str_pierdeamorporCaricia = DateTime.Now.AddMinutes(tiempopierdeamorporCaricia).ToString(); 
+                PlayerPrefs.SetString("horapierdeamor",str_pierdeamorporCaricia);
+                scriptMascota.CambiarAmor(-1);
+            }
+            Debug.Log("quierecaricia");
+        }
+        else 
+        {
+                    Debug.Log("noquierecaricia");
+
+        }
+    }
+
 }

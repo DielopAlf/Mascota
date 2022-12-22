@@ -16,10 +16,10 @@ public class Mascota : MonoBehaviour
 
    
 
-    private void Start()
+    private void Awake()
     {
-
-        Amor =  PlayerPrefs.GetInt("Amor", 1);
+     
+        Amor = 50; //PlayerPrefs.GetInt("Amor", 1);
         EstadoActual =  PlayerPrefs.GetInt("EstadoActual", 1);
 
         if (PlayerPrefs.GetInt("Hambre", 0) == 0)
@@ -44,7 +44,7 @@ public class Mascota : MonoBehaviour
         Amor= Amor+ DarAmor;
         PlayerPrefs.SetInt("Amor", Amor);
         CambiarEstado();
-            
+            Debug.Log(Amor);
 
     }
     

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23501289881436752}
   - component: {fileID: 5877276607800844464}
   - component: {fileID: 3905696180287910875}
+  - component: {fileID: 7568939091912187756}
   m_Layer: 0
   m_Name: Rocket01_Orange
   m_TagString: Untagged
@@ -114,3 +115,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.3561592, y: 9.814482, z: 3.3561597}
   m_Center: {x: 0.009535313, y: 1.0065076, z: 0.0025550127}
+--- !u!114 &7568939091912187756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440849453096432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d914433e51e8cd48888f6c6ed0dddfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ComidaPrefabs: []
+  BombasPrefabs: []
+  secondSpawn: 0.5
+  minTras: 0
+  maxTras: 0
+  quesoy: 1

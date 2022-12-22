@@ -13,16 +13,16 @@ public class Caricia: MonoBehaviour
     Mascota scriptMascota;
     public GameObject particulas;
     bool clicmascota;
-    public float TiempodeCaricia = 2f;
-    float temporizador;
+    public float tiempoDeCaricia = 2f;
+    float timer =2f;
     public int amorporCaricia = 10;
+    
     void Start()
     {
-        temporizador = TiempodeCaricia;
-         scriptMascota = mascota.GetComponent<Mascota>();
+        timer = tiempoDeCaricia;
+        scriptMascota = mascota.GetComponent<Mascota>();
     }
 
-    // Update is called once per frame
 
     void Update()
     {
@@ -36,44 +36,49 @@ public class Caricia: MonoBehaviour
                 if (h.collider.tag.Equals("Mascota"))
                 {
                     Rigidbody rigidbodyMascota = h.collider.GetComponent<Rigidbody>();
-                    
-                    clicmascota=true;
                    
+
+                    clicmascota=true;      
                 }
             }
         }
-        else if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
           clicmascota=false;
         }
 
-        
-        
+
+
+
         if (clicmascota==true)
         {
-           if (Input.GetAxis("Mouse X")!=0f||Input.GetAxis("Mouse Y")!=0f) 
+           if (Input.GetAxis("Mouse X")!=0f||Input.GetAxis("Mouse Y")!=0f)
            {
-               temporizador -= Time.deltaTime;    
-       
-               if (temporizador<= 0f)
-               {
-                scriptMascota.CambiarAmor(amorporCaricia); 
-                
-                temporizador = TiempodeCaricia;
-                clicmascota=false;
-                StartCoroutine(mostrarcorazones());
-               }
+                   
+                timer -= Time.deltaTime;
+                if(timer <= 0f)
+                {
+                    scriptMascota.CambiarAmor(10);
+                    timer = tiempoDeCaricia;
+                    clicmascota = false;
+                    StartCoroutine(MostrarCorazones());
+                }
+
            }
         }
 
-        
+       
     }
-    IEnumerator mostrarcorazones()
+
+
+    IEnumerator MostrarCorazones()
     {
         particulas.SetActive(true);
-        yield return new WaitForSeconds(1);
+
+        yield return new WaitForSeconds(1f);
+
         particulas.SetActive(false);
-        
+
     }
  
 }

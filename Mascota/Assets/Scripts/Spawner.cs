@@ -5,7 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
 
-   
+   public GameObject [] Obstaculos;
+   public GameObject [] Comida;
    public GameObject prefabtarget;
    public bool stopSpawning = false;
    public float SpawnTime;
