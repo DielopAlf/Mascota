@@ -20,7 +20,13 @@ public class DateManager : MonoBehaviour
 
     public string  str_pierdeamorporhambre;
 
-   // string hourHambreString;
+    /* string hourHambreString;
+     * string ultimaHoraqueresyopuntosporhambre
+     * [SerializedField]
+     * in pointslove = 100;
+     *  [SerializedField]
+     * float frecuenciarestadopuntosporalimentacion = 5f;
+     */
 
     string ultimaHoraQueRestoPuntosPorHambre;
 
@@ -41,8 +47,8 @@ public class DateManager : MonoBehaviour
     {
         scriptMascota = mascota.GetComponent<Mascota>();
 
-        comprobarHoras (); 
-      
+        comprobarHoras ();
+
 
         /*
         //Para probar el funcionamiento lo primero que hago
@@ -60,6 +66,26 @@ public class DateManager : MonoBehaviour
         //esto lo hago para poder guardar como string en playerprefs
 
         //las diferentes fechas.
+
+        hourHambrestring = playerprefs.getstring("cuandotendrahambre","nuncahejugado");
+
+        if (hourhambrestring != "nuncahejugado")
+        {
+            cuandotendrahambre = datetime.parse(hourhambrestring);
+        
+        }
+        else
+        {
+
+                    cuandotendrahambre = datetime.now.(assminutes(1);
+
+        }
+
+        debug.log("tendra hambre a las" + cuando tendrahambre);
+
+        ultimahoraquerestopuntosporhambre = da
+
+
 
         hourHambreString = cuandoTendraHambre.ToString();
 
@@ -148,9 +174,13 @@ public class DateManager : MonoBehaviour
             DateTime cuandoTendraHambre = DateTime.Now.AddSeconds(15);
 
             hourHambreString = cuandoTendraHambre.ToString();
-
+            playerPrefs-SetDtring("cuandoTrandraHambre",hour
+            
             pointsLove += 10;
+            
+    
 
+            
         }
 
         else
