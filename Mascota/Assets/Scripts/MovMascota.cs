@@ -8,29 +8,63 @@ public class MovMascota : MonoBehaviour
 {
 
     [SerializeField] float Velocidad = 7f;
-
+    public GameObject menuAlimentar; 
     float xInput;
 
-
-    bool facingRight;
-  
-
     Rigidbody rb;
+
+    public float maxDerecha = 3f;
+
+    public float maxIzquierda = -3f;
+
+    bool botonpulsar;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        rb.velocity = new Vector3(xInput * Velocidad, rb.velocity.y, 0f); 
+        if (botonpulsar == false)
+        {       
+           xInput = Input.GetAxis("Horizontal");  
+        }
+
     }
 
-    public void HorizontalInput(float value)
+    public void FixedUpdate()
     {
-        xInput = value;
+        if (menuAlimentar.activeSelf == true)
+        {
+
+                movimiento();
+
+        }
     }
+    
+    public void movimiento()
+    {
+     
+      if (xInput<0 && transform.position.x > maxIzquierda)
+      {
 
+         rb.MovePosition(transform.position + new Vector3(xInput,0,0f)*Velocidad* Time.deltaTime);
+      }
+      else if  (xInput>0 && transform.position.x < maxDerecha)
+      {
+         rb.MovePosition(transform.position + new Vector3(xInput,0,0f)*Velocidad* Time.deltaTime);
+      }
 
+    }
+    public void botonpulsado(float Input)
+    {
+     botonpulsar = true;
+     xInput = Input;
+    }
+     public void botonsoltado ()
+    {
+     botonpulsar =false;
+     xInput = 0;
+    }
 }

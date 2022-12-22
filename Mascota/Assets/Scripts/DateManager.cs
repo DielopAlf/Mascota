@@ -10,13 +10,17 @@ public class DateManager : MonoBehaviour
 
     Mascota scriptMascota;
 
-    public float tiempoParaHambre=20f; 
+    public float tiempoParaHambre=180f;
+    
+    public float tiempoparaperderpuntos=20f;
 
     public float tiempoParaAmor=30f;
 
-    public string horadehambre;
+    public string  str_horadehambre;
 
-    string hourHambreString;
+    public string  str_pierdeamorporhambre;
+
+   // string hourHambreString;
 
     string ultimaHoraQueRestoPuntosPorHambre;
 
@@ -37,17 +41,8 @@ public class DateManager : MonoBehaviour
     {
         scriptMascota = mascota.GetComponent<Mascota>();
 
-        Debug.Log("Ahora mismo = " + DateTime.Now.ToString());
-
-        if(PlayerPrefs.GetString("horadehambre")=="")
-        {
-            horadehambre=DateTime.Now.AddMinutes(tiempoParaHambre).ToString();
-            PlayerPrefs.SetString("horadehambre", horadehambre);
-        }
-        else
-        {
-            horadehambre=PlayerPrefs.GetString("horadehambre");
-        }
+        comprobarHoras (); 
+      
 
         /*
         //Para probar el funcionamiento lo primero que hago
@@ -84,7 +79,7 @@ public class DateManager : MonoBehaviour
     void Update()
 
     {
-
+         comprobarHambre();
         //Carga desde un string (podría ser un string sacado desde player prefs...) la fecha (con hora mes y dias...)
 
         /*
@@ -114,7 +109,7 @@ public class DateManager : MonoBehaviour
 
 
 
-    public bool PuedePerderPuntos()
+    /*public bool PuedePerderPuntos()
 
     {
 
@@ -124,11 +119,11 @@ public class DateManager : MonoBehaviour
 
         return ultimaVezRestado.AddSeconds(frecuenciaRestadoPuntosPorAlimentacion) < DateTime.Now;
 
-    }
+    }*/
 
 
 
-    public bool IsHungry()
+    /*public bool IsHungry()
 
     {
 
@@ -138,11 +133,11 @@ public class DateManager : MonoBehaviour
 
         return cuandoTendraHambre < DateTime.Now;
 
-    }
+    }*/
 
 
 
-    public void GiveFood()
+    /*public void GiveFood()
 
     {
 
@@ -166,27 +161,56 @@ public class DateManager : MonoBehaviour
             
         }
 
-    }
+    }*/
    
-    public void comprobarHambre()
+    public void comprobarHoras()
     {
-       if(scriptMascota.Hambre==true)
+       if(PlayerPrefs.GetString("horaparacomer")=="")
        {
+       
+        str_horadehambre=DateTime.Now.AddMinutes(tiempoParaHambre).ToString();
 
-
-
+        PlayerPrefs.SetString("horaparacomer",str_horadehambre);
        }
 
        else 
        {
 
-            if (DateTime.Parse(DateTime.Now.ToString())>=DateTime.Parse(horadehambre))
-            {
-                scriptMascota.Hambre=true;
+        str_horadehambre = PlayerPrefs.GetString ("horaparacomer");
 
+       }
+    }  
+    public void comprobarHambre()
+    {
+        if(scriptMascota.Hambre==true)
+        {
+            if (DateTime.Now> DateTime.Parse(str_pierdeamorporhambre))
+            {
+
+             str_pierdeamorporhambre=DateTime.Now.AddMinutes(tiempoparaperderpuntos).ToString();
+             PlayerPrefs.SetString("horapierdepuntos", str_pierdeamorporhambre);
+             scriptMascota.CambiarAmor(-1);
 
             }
-        
-       }
-    } 
+            
+
+        }
+
+      else
+      {
+          if (DateTime.Now> DateTime.Parse(str_horadehambre))
+          {
+
+          scriptMascota.Hambre = true;
+
+
+          }
+
+
+
+
+
+      }
+     
+    }
 }

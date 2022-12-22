@@ -8,23 +8,18 @@ using UnityEngine.SceneManagement;
 
 public class Caricia: MonoBehaviour
 {
+   public GameObject mascota;
 
-    public Slider BarraDeVida;
-    public TextMeshProUGUI tiempo;
-    public GameObject malla;
+    Mascota scriptMascota;
     public GameObject particulas;
-    bool estaActiva;
-
-    public Slider SLDAmor;
-
-    public int Amor;
-    int EstadoActual = 0;
-
-
-
+    bool clicmascota;
+    public float TiempodeCaricia = 2f;
+    float temporizador;
+    public int amorporCaricia = 10;
     void Start()
     {
-        estaActiva=true;
+        temporizador = TiempodeCaricia;
+         scriptMascota = mascota.GetComponent<Mascota>();
     }
 
     // Update is called once per frame
@@ -34,34 +29,51 @@ public class Caricia: MonoBehaviour
         RaycastHit h;
         Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (Physics.Raycast(r, out h))
             {
                 if (h.collider.tag.Equals("Mascota"))
                 {
                     Rigidbody rigidbodyMascota = h.collider.GetComponent<Rigidbody>();
-                    Acariciar();
-                    particulas.SetActive(true);
-                    Amor += 10;
-
                     
+                    clicmascota=true;
+                   
                 }
             }
         }
-    }
-    void Acariciar()
-    {
-       
-        if (EstadoActual > 0)
+        else if (Input.GetMouseButtonUp(0))
         {
-            if (Amor < 100)
-            {
-                Amor++;
-            }
-            SLDAmor.value = Amor;
+          clicmascota=false;
         }
 
-        Debug.Log("golpea");
+        
+        
+        if (clicmascota==true)
+        {
+           if (Input.GetAxis("Mouse X")!=0f||Input.GetAxis("Mouse Y")!=0f) 
+           {
+               temporizador -= Time.deltaTime;    
+       
+               if (temporizador<= 0f)
+               {
+                scriptMascota.CambiarAmor(amorporCaricia); 
+                
+                temporizador = TiempodeCaricia;
+                clicmascota=false;
+                StartCoroutine(mostrarcorazones());
+               }
+           }
+        }
+
+        
     }
+    IEnumerator mostrarcorazones()
+    {
+        particulas.SetActive(true);
+        yield return new WaitForSeconds(1);
+        particulas.SetActive(false);
+        
+    }
+ 
 }
