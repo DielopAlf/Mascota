@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 
 public class Caricia: MonoBehaviour
@@ -16,11 +17,23 @@ public class Caricia: MonoBehaviour
     public float tiempoDeCaricia = 2f;
     float timer =2f;
     public int amorporCaricia = 10;
-    
-    void Start()
+
+    string siguienteHoraCaricia;
+    public float minsParaSiguienteCaricia = 20f;
+
+    public void Start()
     {
         timer = tiempoDeCaricia;
         scriptMascota = mascota.GetComponent<Mascota>();
+
+        if(PlayerPrefs.GetString("horaSiguienteCaricia") == "")
+        {
+            siguienteHoraCaricia = "";
+        }
+        else
+        {
+            siguienteHoraCaricia = PlayerPrefs.GetString("horaSiguienteCaricia");
+        }
     }
 
 
@@ -42,9 +55,9 @@ public class Caricia: MonoBehaviour
                 }
             }
         }
-        if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))
         {
-          clicmascota=false;
+            clicmascota=false;
         }
 
 
@@ -52,22 +65,36 @@ public class Caricia: MonoBehaviour
 
         if (clicmascota==true)
         {
-           if (Input.GetAxis("Mouse X")!=0f||Input.GetAxis("Mouse Y")!=0f)
-           {
-                   
+            if (Input.GetAxis("Mouse X") != 0f || Input.GetAxis("Mouse Y") != 0f)
+            {
                 timer -= Time.deltaTime;
                 if(timer <= 0f)
                 {
-                    scriptMascota.CambiarAmor(10);
                     timer = tiempoDeCaricia;
                     clicmascota = false;
                     StartCoroutine(MostrarCorazones());
+
+                    DateManager.Singleton.HaSidoAcariciada();
+
+                    if (siguienteHoraCaricia != "")
+                    {
+                        if(DateTime.Now > DateTime.Parse(siguienteHoraCaricia))
+                        {
+                            scriptMascota.CambiarAmor(10);
+                            siguienteHoraCaricia = DateTime.Now.AddMinutes(minsParaSiguienteCaricia).ToString();
+                            PlayerPrefs.SetString("horaSiguienteCaricia", siguienteHoraCaricia);
+                        }
+                    }
+                    else
+                    {
+                        scriptMascota.CambiarAmor(10);
+                        siguienteHoraCaricia = DateTime.Now.AddMinutes(minsParaSiguienteCaricia).ToString();
+                        PlayerPrefs.SetString("horaSiguienteCaricia", siguienteHoraCaricia);
+                    }
                 }
 
-           }
+            }
         }
-
-       
     }
 
 
@@ -78,7 +105,5 @@ public class Caricia: MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         particulas.SetActive(false);
-
     }
- 
 }

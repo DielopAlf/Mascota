@@ -6,21 +6,11 @@ public class Comida : MonoBehaviour
 {
 
    public float drag = 1;
- 
 
-
-    public enum state 
-    {
-    Comida,
-    obstaculos,
-    
-    }
-    public state quesoy;
-
+    public int amorporcomida=3;
 
 
     void Start()
-    
     {
     this.gameObject.GetComponent<Rigidbody>().drag=drag;
     }
@@ -41,7 +31,7 @@ public class Comida : MonoBehaviour
     {
         if (other.gameObject.tag == "Mascota")
         {
-            other.gameObject.GetComponent<Mascota>().CambiarAmor(1);
+            other.gameObject.GetComponent<Mascota>().CambiarAmor(amorporcomida);
             Destroy(this);
         }
 

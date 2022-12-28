@@ -9,6 +9,8 @@ public class Mascota : MonoBehaviour
 {
     public bool Hambre;
     public int Amor;
+    int AmorPorAlimentacion;
+    public int MaxAmoralAlimentar=12;
 
     public GameObject [] Estados;
     public int EstadoActual =0;
@@ -47,8 +49,31 @@ public class Mascota : MonoBehaviour
             Debug.Log(Amor);
 
     }
-    
+    public void DardeComer(int amor)
+    {
+        if (Hambre == true )
+        {
+            AmorPorAlimentacion += amor;
+            if (AmorPorAlimentacion <= MaxAmoralAlimentar)
+            {
+                CambiarAmor(amor);
+            }
 
+
+        }
+    }
+    public void AcabardeAlimentar()
+    {
+
+        if (AmorPorAlimentacion > 0)
+        {
+            Hambre= false;
+            AmorPorAlimentacion= 0;
+        }
+
+
+
+    }
     
 
 

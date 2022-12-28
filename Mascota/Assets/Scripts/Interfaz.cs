@@ -7,12 +7,16 @@ public class Interfaz : MonoBehaviour
     public GameObject MenuInicial;
     public GameObject MenuJugar;
     public GameObject MenuAlimentar;
-
+    public GameObject Minijuego;
+    Spawner spawner;
     void Start()
     {
      MenuInicial.SetActive(true); 
    //  MenuJugar.SetActive(false);
      MenuAlimentar.SetActive(false);
+
+
+        spawner= Minijuego.GetComponent<Spawner>();
     }
 
     
@@ -30,6 +34,9 @@ public class Interfaz : MonoBehaviour
     public void ActivarAlimentar()
     {
         MenuInicial.SetActive(false);
+
+        spawner.comenzarjuego();
+
         MenuAlimentar.SetActive(true);
     }
     public void DesactivarAlimentar()

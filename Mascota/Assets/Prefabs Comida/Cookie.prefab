@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3133044449725151795}
   m_LocalRotation: {x: -7.635584e-10, y: -0.9993896, z: 0.000000021842387, w: -0.034936428}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -128,9 +128,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d914433e51e8cd48888f6c6ed0dddfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ComidaPrefabs: []
-  BombasPrefabs: []
-  secondSpawn: 0.5
-  minTras: 0
-  maxTras: 0
-  quesoy: 0
+  drag: 2
+  amorporcomida: 3
