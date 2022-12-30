@@ -577,7 +577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &190138050
 Transform:
   m_ObjectHideFlags: 0
@@ -1501,7 +1501,6 @@ GameObject:
   - component: {fileID: 738283155}
   - component: {fileID: 738283154}
   - component: {fileID: 738283153}
-  - component: {fileID: 738283159}
   - component: {fileID: 738283157}
   m_Layer: 5
   m_Name: Botones  Flechas
@@ -1610,18 +1609,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &738283159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738283152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad14c8deab1a94449b8cbb344b25e31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &827095891
 GameObject:
   m_ObjectHideFlags: 0
