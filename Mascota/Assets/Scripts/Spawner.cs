@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Spawner : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Spawner : MonoBehaviour
     Mascota scriptMascota;
 
     public float tiempoDeJuego = 30f;
+
+    public TextMeshProUGUI tiempo;
 
     bool gameOver;
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class Interfaz : MonoBehaviour
 {
     public GameObject MenuInicial;
@@ -11,7 +12,6 @@ public class Interfaz : MonoBehaviour
 
     public GameObject Minijuego;
     Spawner spawner;
-
 
     public Slider sliderAmor;
     public Toggle toggleHambre;

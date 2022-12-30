@@ -127,5 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d914433e51e8cd48888f6c6ed0dddfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 2
-  amorporcomida: -1
+  drag: 3
+  amorPorComida: 3
+  spawner: {fileID: 0}
