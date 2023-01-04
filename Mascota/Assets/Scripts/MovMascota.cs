@@ -13,9 +13,9 @@ public class MovMascota : MonoBehaviour
 
     Rigidbody rb;
 
-    public float maxDerecha = 3f;
+    public float maxDerecha = 2.5f;
 
-    public float maxIzquierda = -3f;
+    public float maxIzquierda = -2.5f;
 
     bool botonpulsar;
 
