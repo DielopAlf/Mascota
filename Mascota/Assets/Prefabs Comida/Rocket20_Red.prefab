@@ -128,5 +128,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 3
-  amorPorComida: 3
+  amorPorComida: -1
   spawner: {fileID: 0}

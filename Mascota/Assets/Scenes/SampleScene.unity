@@ -842,7 +842,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1150001866}
+        - m_Target: {fileID: 5447260173300761949}
           m_TargetAssemblyTypeName: MovMascota, Assembly-CSharp
           m_MethodName: botonpulsado
           m_Mode: 4
@@ -858,7 +858,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1150001866}
+        - m_Target: {fileID: 5447260173300761949}
           m_TargetAssemblyTypeName: MovMascota, Assembly-CSharp
           m_MethodName: botonsoltado
           m_Mode: 1
@@ -1579,7 +1579,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1150001866}
+        - m_Target: {fileID: 5447260173300761949}
           m_TargetAssemblyTypeName: MovMascota, Assembly-CSharp
           m_MethodName: botonpulsado
           m_Mode: 4
@@ -1595,7 +1595,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1150001866}
+        - m_Target: {fileID: 5447260173300761949}
           m_TargetAssemblyTypeName: MovMascota, Assembly-CSharp
           m_MethodName: botonsoltado
           m_Mode: 1
@@ -1788,20 +1788,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mascota: {fileID: 1017062379}
   tiempoParaHambre: 0.2
-  tiempoparaperderpuntos: 0.3
-  tiempoParaCaricia: 0.2
+  tiempoparaperderpuntos: 0.5
+  tiempoParaCaricia: 0.43
   tiempopierdeamorporCaricia: 1
---- !u!114 &1150001866 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6891618499719514657, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
-  m_PrefabInstance: {fileID: 5447260173300761948}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1017062379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34688cf551c96b24fbce15a141fdc65e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1156944622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,7 +2842,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 827095893}
   toggleTransition: 1
   graphic: {fileID: 136137906}
@@ -2971,7 +2960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1805954430}
-  - component: {fileID: 1805954429}
+  - component: {fileID: 1805954431}
   m_Layer: 0
   m_Name: 'minijuego '
   m_TagString: Untagged
@@ -2979,7 +2968,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1805954429
+--- !u!4 &1805954430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805954428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1805954431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3002,24 +3006,9 @@ MonoBehaviour:
   mascota: {fileID: 1017062379}
   tiempoDeJuego: 30
   tiempo: {fileID: 0}
-  maxPosDerecha: 3.5
-  maxPosIzquierda: -3.5
+  maxPosDerecha: 2.5
+  maxPosIzquierda: -2.5
   altura: 5
---- !u!4 &1805954430
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805954428}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1833003581
 GameObject:
   m_ObjectHideFlags: 0
@@ -3444,14 +3433,14 @@ PrefabInstance:
     - target: {fileID: 2031313021594912991, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: particulas
       value: 
-      objectReference: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
+      objectReference: {fileID: 1202522996400206, guid: 361fca51a6e6726498ae247b98d4067e, type: 3}
     - target: {fileID: 2031313021594912991, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: tiempoDeCaricia
-      value: 0.4
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2031313021594912991, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: minsParaSiguienteCaricia
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 6883279430744923270, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: m_Name
@@ -3463,11 +3452,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6891618499719514657, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: maxDerecha
-      value: 3.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6891618499719514657, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: maxIzquierda
-      value: -3.5
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6891618499719514657, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: menuAlimentar
@@ -3476,7 +3465,7 @@ PrefabInstance:
     - target: {fileID: 6910917342223851232, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: particulas
       value: 
-      objectReference: {fileID: 1202522996400206, guid: f87e7926fd589094b8a269e14b8bea5e, type: 3}
+      objectReference: {fileID: 1202522996400206, guid: 361fca51a6e6726498ae247b98d4067e, type: 3}
     - target: {fileID: 8760572789148801407, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -3523,3 +3512,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+--- !u!114 &5447260173300761949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6891618499719514657, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+  m_PrefabInstance: {fileID: 5447260173300761948}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017062379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34688cf551c96b24fbce15a141fdc65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
