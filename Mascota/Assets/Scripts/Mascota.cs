@@ -15,13 +15,13 @@ public class Mascota : MonoBehaviour
 
     public GameObject particulas;
 
-    public GameObject[] Estados;
-    public int EstadoActual = 0;
+    public GameObject [] Estados;
+    public int EstadoActual =0;
 
     public bool muerta;
 
     public Vector3 posInicial;
-
+   
     //Nada mas empezar
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class Mascota : MonoBehaviour
         Amor = PlayerPrefs.GetInt("Amor", 1);
         //Lo mismo para saber cual era su estado actual (su forma)
         EstadoActual =  PlayerPrefs.GetInt("EstadoActual", 1);
-
+        
         //Si en los playerprefs habiamos guardado un 0 en hambre (o no habia ningun valor gurado), entonces esto significa que guardamos que no tenia hambre
         if (PlayerPrefs.GetInt("Hambre", 0) == 0)
         {
@@ -37,9 +37,9 @@ public class Mascota : MonoBehaviour
 
         }
         //Si habia guarado otro numero en hambre de los playerprefs (un 1), entonces esto signfica que si tenia hambre
-        else
+        else 
         {
-            Hambre= true;
+            Hambre= true; 
         }
 
         //Comprobamos en base a cuando amor tenga, cual es la forma que debe tener
@@ -62,7 +62,7 @@ public class Mascota : MonoBehaviour
     public void CambiarAmor(int DarAmor)
     {
         //Si la mascota esta en una forma que no sea la 0 (la de muerte), entonces puede recibir o perder amor
-        if (EstadoActual != 0)
+        if(EstadoActual != 0)
         {
             //El amor sera igual al que ya tiene mas lo que le hayamos dado o quitado
             Amor = Amor + DarAmor;
@@ -92,16 +92,16 @@ public class Mascota : MonoBehaviour
             ComprobarMuerte();
         }
     }
-
+    
 
     //Funcion que es es similar a la de dar amor, pero especificamente para cuando come, para controlar cuanto puede comer de una sentada (en un minijuego)
     public void DarDeComer(int amor)
     {
         //Si la mascota tiene hambre, entonces le subiremos amor si come (o se lo bajaremos si se come un obstaculo)
-        if (Hambre == true)
+        if(Hambre == true)
         {
             //Si el amor que le damos es mayor a 0 (no es un obstaculo)
-            if (amor > 0)
+            if(amor > 0)
             {
                 //Guardamos cuando amor a conseguido durante este minijuego (el que ya hubiera conseguido en el mas este)
                 amorAlimentando = +amor;
@@ -127,8 +127,8 @@ public class Mascota : MonoBehaviour
         else
         {
             //Si el amor que le damos es menor que 0 (se come un obstaculo)
-            if (amor < 0)
-            {
+            if(amor < 0)
+            {   
                 //Entonces si le restamos este amor
                 CambiarAmor(amor);
             }
@@ -155,7 +155,7 @@ public class Mascota : MonoBehaviour
     public void AcabarAlimentar()
     {
         //Si el amor que recibio durante el minijuego fue mayor que 0 (es decir, se comio algun trozo de comida)
-        if (amorAlimentando > 0)
+        if(amorAlimentando > 0)
         {
             //Entonces ya no tiene hambre
             Hambre = false;
@@ -179,7 +179,7 @@ public class Mascota : MonoBehaviour
     public void ComprobarMuerte()
     {
         //Si el amor baja de 0 o es 0
-        if (Amor <= 0)
+        if(Amor <= 0)
         {
             //Entonces consideramos que la mascota esta muerta
             muerta = true;
@@ -206,7 +206,7 @@ public class Mascota : MonoBehaviour
     public void CambiarEstado()
     {
         //Siempre que se llama, hacemos un bucle para pasar por todos los psoibles estados y descativarlos todods (Para evitar que puedan quedar dos formas activas a la vez)
-        for (int i = 0; i < Estados.Length; i++)
+        for(int i = 0; i < Estados.Length; i++)
         {
             Estados[i].SetActive(false);
         }
@@ -222,7 +222,7 @@ public class Mascota : MonoBehaviour
         }
         //Despues seguimos comprobamos si el amor esta entre unos rangos, y segun el rango, activamos un aspecto en espeficico y guardamos ese estado correspondiente
 
-        else if (Amor>0 && Amor<=5)
+        else if(Amor>0 && Amor<=5)
         {
             Estados[1].SetActive(true);
             EstadoActual=1;
@@ -244,7 +244,7 @@ public class Mascota : MonoBehaviour
         }
 
         //Al acabr, guardamos cual es el estado acutal en el playerprefs
-        PlayerPrefs.SetInt("EstadoActual", EstadoActual);
+        PlayerPrefs.SetInt("EstadoActual",EstadoActual);
     }
-
-}
+    
+} 
