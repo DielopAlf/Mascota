@@ -116,6 +116,8 @@ public class Mascota : MonoBehaviour
                 //Si ya ha conseguido todo el amor que puede conseguir de una sentada, no hacemos nada, no le subimos el amor
             }
             //Si el amor que le damos es menor que 0 (es decir, se come un obstaculo)
+          
+
             else
             {
                 //Entonces si que le restamos amor independientemente de cualquier otra cosa
@@ -123,6 +125,8 @@ public class Mascota : MonoBehaviour
             }
 
         }
+        
+
         //Si no tiene hambre, lo unico que permitimos es que le baje el amor si se come un obstaculo que le quite amor, pero no que le suba
         else
         {
@@ -132,10 +136,16 @@ public class Mascota : MonoBehaviour
                 //Entonces si le restamos este amor
                 CambiarAmor(amor);
             }
+            else
+            {
+            
+            transform.scale =  GameObject.transform.scale + new Vector3 (0f,0.1f,0f);
+            
+            }
         }
+       
     }
-
-
+   
     //Funcion temporizada para activar y desactivar las particulas
     IEnumerator MostrarCorazones()
     {
@@ -166,7 +176,7 @@ public class Mascota : MonoBehaviour
             //Y se cambia en la interfaz la cajita que indica que tiene hambre
             Interfaz.Singleton.toggleHambre.isOn = Hambre;
         }
-
+      
         //Reseteamos los puntos que ha recibido durante el minijuego para que este listo para el proximo minijuego
         amorAlimentando = 0;
 

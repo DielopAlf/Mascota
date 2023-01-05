@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Spawner : MonoBehaviour
 
     public float tiempoDeJuego = 30f;
 
-    public TextMeshProUGUI tiempo;
+    public TextMeshProUGUI timer;
 
     bool gameOver;
 
@@ -129,5 +130,5 @@ public class Spawner : MonoBehaviour
         //Indicamos a la interfaz que ya paro el minijuego para que vuelva al menu principal
         Interfaz.Singleton.DesactivarMenuAlimentar();
     }
-
+   
 }

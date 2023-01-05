@@ -1263,7 +1263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -10}
+  m_AnchoredPosition: {x: 10, y: -11.3}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &827095893
@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7058824, g: 0.38823533, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.38823533, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1795,7 +1795,7 @@ MonoBehaviour:
   tiempoParaHambre: 0.2
   tiempoparaperderpuntos: 0.5
   tiempoParaCaricia: 0.43
-  tiempopierdeamorporCaricia: 1
+  tiempopierdeamorporCaricia: 0.6
 --- !u!1 &1156944622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2745,7 +2745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.990566, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3501,11 +3501,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6891618499719514657, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: maxDerecha
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6891618499719514657, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: maxIzquierda
-      value: -2.5
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6891618499719514657, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: menuAlimentar
