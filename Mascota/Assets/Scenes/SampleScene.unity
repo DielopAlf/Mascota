@@ -3010,7 +3010,7 @@ MonoBehaviour:
   - {fileID: 1476762247658282, guid: 08c1265c3303e0c4e96544510cb82ff9, type: 3}
   mascota: {fileID: 1017062379}
   tiempoDeJuego: 30
-  tiempo: {fileID: 0}
+  timer: {fileID: 0}
   maxPosDerecha: 2.5
   maxPosIzquierda: -2.5
   altura: 5
@@ -3511,6 +3511,10 @@ PrefabInstance:
       propertyPath: menuAlimentar
       value: 
       objectReference: {fileID: 190138049}
+    - target: {fileID: 6910917342223851232, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+      propertyPath: mascota
+      value: 
+      objectReference: {fileID: 1017062379}
     - target: {fileID: 6910917342223851232, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: particulas
       value: 

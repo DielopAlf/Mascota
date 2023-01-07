@@ -9,7 +9,7 @@ public class Mascota : MonoBehaviour
 {
     public bool Hambre;
     public int Amor;
-    GameObject mascota;
+    public GameObject mascota;
 
     int amorAlimentando;
     public int maxAmorAlAlimentar = 12;
@@ -137,11 +137,12 @@ public class Mascota : MonoBehaviour
                 //Entonces si le restamos este amor
                 CambiarAmor(amor);
             }
-          /*  else
+            /*else
             {
             
-             mascota.transform.localscale = mascota.transform.localscale + new Vector3 (0f,0.1f,0f);
-            
+              Mascota.(transform.scale = Mascota.transform.scale + new Vector3 (0f,1f,0f));
+             
+
             }*/
         }
        
