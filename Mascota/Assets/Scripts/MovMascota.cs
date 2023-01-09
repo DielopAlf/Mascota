@@ -8,63 +8,67 @@ public class MovMascota : MonoBehaviour
 {
 
     [SerializeField] float Velocidad = 7f;
-    public GameObject menuAlimentar; 
     float xInput;
+    Mascota mascota;
 
     Rigidbody rb;
 
-    public float maxDerecha = 3f;
+    public float maxDerecha = 2.5f;
 
-    public float maxIzquierda = -3f;
+    public float maxIzquierda = -2.5f;
 
     bool botonpulsar;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        mascota = GetComponent<Mascota>();
     }
 
     private void Update()
     {
         if (botonpulsar == false)
-        {       
-           xInput = Input.GetAxis("Horizontal");  
+        {
+            xInput = Input.GetAxis("Horizontal");
         }
 
     }
 
     public void FixedUpdate()
     {
-        if (menuAlimentar.activeSelf == true)
+        if (Interfaz.Singleton.MenuAlimentar.activeSelf == true && mascota.muerta != true)
         {
-
-                movimiento();
+            movimiento();
 
         }
     }
-    
+
+   
     public void movimiento()
     {
-     
-      if (xInput<0 && transform.position.x > maxIzquierda)
-      {
-
-         rb.MovePosition(transform.position + new Vector3(xInput,0,0f)*Velocidad* Time.deltaTime);
-      }
-      else if  (xInput>0 && transform.position.x < maxDerecha)
-      {
-         rb.MovePosition(transform.position + new Vector3(xInput,0,0f)*Velocidad* Time.deltaTime);
-      }
+       
+        if (xInput<0 && transform.position.x > maxIzquierda)
+        {
+            rb.MovePosition(transform.position + new Vector3(xInput, 0, 0f)*Velocidad* Time.deltaTime);
+        }
+        else if (xInput>0 && transform.position.x < maxDerecha)
+        {
+            rb.MovePosition(transform.position + new Vector3(xInput, 0, 0f)*Velocidad* Time.deltaTime);
+        }
 
     }
+
+   
     public void botonpulsado(float Input)
     {
-     botonpulsar = true;
-     xInput = Input;
+        botonpulsar = true;
+        xInput = Input;
     }
-     public void botonsoltado ()
+
+   
+    public void botonsoltado()
     {
-     botonpulsar =false;
-     xInput = 0;
+        botonpulsar =false;
+        xInput = 0;
     }
 }

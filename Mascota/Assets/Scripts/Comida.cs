@@ -4,36 +4,38 @@ using UnityEngine;
 
 public class Comida : MonoBehaviour
 {
-    [SerializeField] GameObject[] ComidaPrefabs;
 
-    [SerializeField] GameObject[] BombasPrefabs;
+    public float drag = 1;
+    public int amorPorComida = 3;
 
-    [SerializeField] float secondSpawn = 0.5f;
-
-    [SerializeField] float minTras;
-
-    [SerializeField] float maxTras;
+    public Spawner spawner;
 
 
     void Start()
     {
-        StartCoroutine(ComidaSpawn());
-
+        this.gameObject.GetComponent<Rigidbody>().drag=drag;
     }
 
-   IEnumerator ComidaSpawn()
+
+    public void update()
     {
-       while(true)
+        if (transform.position.y < -20f)
         {
-
-            var wanted = Random.Range(minTras, maxTras);
-            var position = new Vector3(wanted, transform.position.y);
-            GameObject gameObject = Instantiate(ComidaPrefabs[Random.Range(0, ComidaPrefabs.Length)], position,Quaternion.identity);
-            yield return new WaitForSeconds(secondSpawn);
-            Destroy(gameObject, 30f);
-
+            Destroy(this);
         }
 
     }
 
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Mascota")
+        {
+            
+            other.gameObject.GetComponent<Mascota>().DarDeComer(amorPorComida);
+
+            Destroy(this.gameObject);
+
+        }
+    }
 }

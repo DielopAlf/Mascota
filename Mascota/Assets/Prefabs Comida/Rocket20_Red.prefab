@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23496858356899630}
   - component: {fileID: -9151302425781716536}
   - component: {fileID: 2273202321083222563}
+  - component: {fileID: -3385817807141248147}
   m_Layer: 0
   m_Name: Rocket20_Red
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1700059842367672}
   m_LocalRotation: {x: -0.00000008078812, y: 0.12820426, z: 0.000000010443564, w: 0.9917478}
   m_LocalPosition: {x: 0.033432107, y: 1, z: 4.4}
-  m_LocalScale: {x: -0.37886, y: -0.37886, z: -0.37886}
+  m_LocalScale: {x: -0.1, y: -0.1, z: -0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,3 +115,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.231856, y: 10.01964, z: 5.2318554}
   m_Center: {x: 8.665935e-16, y: 0.24392438, z: -0.00000011920929}
+--- !u!114 &-3385817807141248147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700059842367672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d914433e51e8cd48888f6c6ed0dddfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drag: 3
+  amorPorComida: -1
+  spawner: {fileID: 0}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 367622603060310025}
   - component: {fileID: 7829770593967226539}
   - component: {fileID: 8354301863389456735}
+  - component: {fileID: -6983703179881957817}
   m_Layer: 0
   m_Name: Ham
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2100604612527670485}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -116,3 +117,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.074845, y: 2.0410469, z: 2.0410466}
   m_Center: {x: 0, y: 0, z: 0.000000059604645}
+--- !u!114 &-6983703179881957817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100604612527670485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d914433e51e8cd48888f6c6ed0dddfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drag: 3
+  amorPorComida: 3
+  spawner: {fileID: 0}

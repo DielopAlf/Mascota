@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6883279430744923270}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.99960256, z: 0, w: -0.028191963}
   m_LocalPosition: {x: -1.2702421, y: 1.8858614, z: 6.0492535}
   m_LocalScale: {x: 1.9519281, y: 1.9519281, z: 1.9519281}
   m_ConstrainProportionsScale: 0
@@ -41,7 +41,7 @@ Transform:
   - {fileID: 1034190071514732555}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -183.231, z: 0}
 --- !u!114 &6910917342223851232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,6 +56,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hambre: 1
   Amor: 0
+  maxAmorAlAlimentar: 12
+  particulas: {fileID: 1202522996400206, guid: 361fca51a6e6726498ae247b98d4067e, type: 3}
   Estados:
   - {fileID: 7430566759290471188}
   - {fileID: 2998719654903396225}
@@ -63,6 +65,8 @@ MonoBehaviour:
   - {fileID: 3782972003175098518}
   - {fileID: 3560171058007807908}
   EstadoActual: 0
+  muerta: 0
+  posInicial: {x: 0, y: 0, z: 0}
 --- !u!65 &4207793975161672510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -71,7 +75,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6883279430744923270}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -105,7 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Velocidad: 7
-  menuAlimentar: {fileID: 0}
   maxDerecha: 2
   maxIzquierda: -2
 --- !u!114 &2031313021594912991
@@ -121,9 +124,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mascota: {fileID: 6883279430744923270}
-  particulas: {fileID: 1031549893538417793}
-  TiempodeCaricia: 2
+  particulas: {fileID: 1202522996400206, guid: 361fca51a6e6726498ae247b98d4067e, type: 3}
+  tiempoDeCaricia: 2
   amorporCaricia: 10
+  minsParaSiguienteCaricia: 20
 --- !u!1001 &322596758539162814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -335,11 +339,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 361fca51a6e6726498ae247b98d4067e, type: 3}
---- !u!1 &1031549893538417793 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1202522996400206, guid: 361fca51a6e6726498ae247b98d4067e, type: 3}
-  m_PrefabInstance: {fileID: 1032600407844318415}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1034190071514732555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4124257825387716, guid: 361fca51a6e6726498ae247b98d4067e, type: 3}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 147730031082930030}
   - component: {fileID: 411109117033409551}
   - component: {fileID: -9065311849271658165}
+  - component: {fileID: 8150615221447995590}
   m_Layer: 0
   m_Name: Cake
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1887010041526537138}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1178953688165125948}
@@ -117,6 +118,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.015584508, y: 0.0054791993, z: 0.014460912}
   m_Center: {x: 0.0003530404, y: 0.00016113208, z: -0.0017336365}
+--- !u!114 &8150615221447995590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887010041526537138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d914433e51e8cd48888f6c6ed0dddfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drag: 3
+  amorPorComida: 3
+  spawner: {fileID: 0}
 --- !u!1 &2491657171552225670
 GameObject:
   m_ObjectHideFlags: 0
