@@ -108,12 +108,14 @@ public class Mascota : MonoBehaviour
             {   
                 CambiarAmor(amor);
             }
-            /*else
+            else
             {
-            
-              Mascota.(transform.scale = Mascota.transform.scale + new Vector3 (0f,1f,0f));
-             
 
+                mascota.transform.localScale = mascota.transform.localScale * PlayerPrefs.GetFloat("gordura", 1.5f);
+            }
+            /*if  (Gordura > 1.5f)
+            {
+                Gordura = 1.5f;
             }*/
         }
        

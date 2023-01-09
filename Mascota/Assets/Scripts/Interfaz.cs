@@ -72,11 +72,7 @@ public class Interfaz : MonoBehaviour
         botonAlimentar.SetActive(false);
         botonResetear.SetActive(true);
     }
-
-
-
-   
-    public void ResetearPuntos()
+public void ResetearPuntos()
     {
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
