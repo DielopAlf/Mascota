@@ -125,7 +125,7 @@ public class DateManager : MonoBehaviour
                 PlayerPrefs.SetString("horapierdepuntos",str_pierdeamorporhambre);
                 scriptMascota.CambiarAmor(-1);
             }
-            Debug.Log("TieneHambre");
+            Debug.Log( "TieneHambre --- perdera puntosamor a las:" + str_pierdeamorporhambre);
 
         }
         else 
@@ -137,8 +137,7 @@ public class DateManager : MonoBehaviour
                 Interfaz.Singleton.toggleHambre.isOn = scriptMascota.Hambre;
 
             }
-             Debug.Log("NotIENEHAMBRE");
-
+            Debug.Log("NotIENEHAMBRE--- la tendra a las:"+   str_horadehambre);
         }
     }
 
@@ -189,11 +188,11 @@ public class DateManager : MonoBehaviour
                 PlayerPrefs.SetString("horapierdeamor",str_pierdeamorporCaricia);
                 scriptMascota.CambiarAmor(-1);
             }
-            Debug.Log("quierecaricia");
+            Debug.Log( "quierecaricia --- perdera amor a las : " + str_pierdeamorporCaricia);
         }
         else 
         {
-            Debug.Log("noquierecaricia");
+            Debug.Log("noquierecaricia --- querrá a las : "+str_horadeCaricia);
 
         }
     }

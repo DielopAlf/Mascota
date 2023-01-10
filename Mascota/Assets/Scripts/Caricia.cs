@@ -23,7 +23,7 @@ public class Caricia : MonoBehaviour
 
 
 
-    public void Start()
+    public void Start() 
     {
         timer = tiempoDeCaricia;
 
@@ -107,7 +107,10 @@ public class Caricia : MonoBehaviour
 
     IEnumerator MostrarCorazones()
     {
-        particulas.SetActive(true);
+        if (scriptMascota.muerta == false)
+        {
+            particulas.SetActive(true);
+        }
 
         yield return new WaitForSeconds(1f);
 
