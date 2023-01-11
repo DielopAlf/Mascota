@@ -1792,7 +1792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mascota: {fileID: 1017062379}
-  tiempoParaHambre: 0.2
+  tiempoParaHambre: 1
   tiempoparaperderpuntos: 0.5
   tiempoParaCaricia: 0.43
   tiempopierdeamorporCaricia: 0.6
@@ -3478,6 +3478,18 @@ PrefabInstance:
       propertyPath: minsParaSiguienteCaricia
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 2510271976246865211, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510271976246865211, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2510271976246865211, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4189354919630654750, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.028191963
@@ -3535,6 +3547,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 190138049}
     - target: {fileID: 6910917342223851232, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+      propertyPath: Amor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910917342223851232, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: mascota
       value: 
       objectReference: {fileID: 1017062379}
@@ -3562,9 +3578,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -183.231
       objectReference: {fileID: 0}
+    - target: {fileID: 7430566759290471188, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8760572789148801407, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760572789148801407, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.951928
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760572789148801407, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.951928
+      objectReference: {fileID: 0}
+    - target: {fileID: 8760572789148801407, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.951928
       objectReference: {fileID: 0}
     - target: {fileID: 8760572789148801407, guid: 1307bf76b6a73874381792efc91c5efa, type: 3}
       propertyPath: m_LocalPosition.x

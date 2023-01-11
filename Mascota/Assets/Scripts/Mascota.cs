@@ -28,14 +28,14 @@ public class Mascota : MonoBehaviour
         Amor = PlayerPrefs.GetInt("Amor", 1);
         EstadoActual =  PlayerPrefs.GetInt("EstadoActual", 1);
         
-        if (PlayerPrefs.GetInt("Hambre", 0) == 0)
+        if (PlayerPrefs.GetInt("Hambre", 0) == 0) 
         {
             Hambre= false;
 
         }
         else 
         {
-            Hambre= true; 
+            Hambre= true;  
         }
 
         CambiarEstado();
@@ -53,7 +53,7 @@ public class Mascota : MonoBehaviour
 
     public void CambiarAmor(int DarAmor)
     {
-        if(EstadoActual != 0)
+        if(EstadoActual != 0) 
         {
             Amor = Amor + DarAmor;
             PlayerPrefs.SetInt("Amor", Amor);
@@ -79,7 +79,7 @@ public class Mascota : MonoBehaviour
 
     public void DarDeComer(int amor)
     {
-        if(Hambre == true)
+        if(Hambre == true) 
         {
             if(amor > 0)
             {
@@ -110,27 +110,21 @@ public class Mascota : MonoBehaviour
             }
             else
             {
-
-                mascota.transform.localScale = mascota.transform.localScale * PlayerPrefs.GetFloat("gordura", 1.5f);
+                engordar();
             }
-            /*if  (Gordura > 1.5f)
-            {
-                Gordura = 1.5f;
-            }*/
-        }
-       
+            
+        } 
     }
    
-    IEnumerator MostrarCorazones()
+    public IEnumerator MostrarCorazones()  
     {
         particulas.SetActive(true);
 
         yield return new WaitForSeconds(1f);
 
-        particulas.SetActive(false);
+        particulas.SetActive(false); 
 
     }
-
 
     public void AcabarAlimentar()
     {
@@ -147,7 +141,6 @@ public class Mascota : MonoBehaviour
 
         transform.position = posInicial;
     }
-
 
     public void ComprobarMuerte()
     {
@@ -168,7 +161,7 @@ public class Mascota : MonoBehaviour
         }
     }
 
-    public void CambiarEstado()
+    public void CambiarEstado() 
     {
         for(int i = 0; i < Estados.Length; i++)
         {
@@ -183,7 +176,7 @@ public class Mascota : MonoBehaviour
             EstadoActual=0;
         }
 
-        else if(Amor>0 && Amor<=5)
+        else if(Amor>0 && Amor<=5) 
         {
             Estados[1].SetActive(true);
             EstadoActual=1;
@@ -196,15 +189,37 @@ public class Mascota : MonoBehaviour
         else if (Amor>20 && Amor<=60)
         {
             Estados[3].SetActive(true);
-            EstadoActual=3;
+            EstadoActual=3;  
         }
         else if (Amor>60)
         {
             Estados[4].SetActive(true);
             EstadoActual=4;
         }
-
         PlayerPrefs.SetInt("EstadoActual",EstadoActual);
+
+        for (int i = 1; i < Estados.Length; i++)
+        {
+            Estados[i].transform.localScale =new Vector3(PlayerPrefs.GetFloat("gorduraX", 1f), PlayerPrefs.GetFloat("gorduraY", 1f), PlayerPrefs.GetFloat("gorduraZ", 1f));
+            
+        } 
     }
-    
+    public void engordar()
+    {
+        for (int i =1; i < Estados.Length; i++)
+        {
+
+            if (Estados[i].transform.localScale.x<1.7f)
+            {
+                Estados[i].transform.localScale = Estados[i].transform.localScale + new Vector3 (0.05f, 0.02f, 0.02f);
+               
+            }
+
+
+        }
+        PlayerPrefs.SetFloat("gorduraX", Estados[1].transform.localScale.x);
+        PlayerPrefs.SetFloat("gorduraY", Estados[1].transform.localScale.y);
+        PlayerPrefs.SetFloat("gorduraZ", Estados[1].transform.localScale.z);
+        Debug.Log( "estoyengordando: "+ Estados[1].transform.localScale.x);
+    }
 } 
