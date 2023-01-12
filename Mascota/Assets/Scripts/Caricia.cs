@@ -55,7 +55,6 @@ public class Caricia : MonoBehaviour
             {
                 if (h.collider.tag.Equals("Mascota"))
                 {
-                    Rigidbody rigidbodyMascota = h.collider.GetComponent<Rigidbody>();
                     clicmascota=true;
                     //se guardará el clickeado sobre la mascota (sera una booleana(toca o no toca)
                 }
