@@ -18,6 +18,7 @@ public class Interfaz : MonoBehaviour
 
     public GameObject botonAlimentar;
     public GameObject botonResetear;
+    public GameObject Salir;
 
 
     public static Interfaz Singleton;
